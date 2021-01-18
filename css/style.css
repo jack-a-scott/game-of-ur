@@ -1,0 +1,184 @@
+body {
+	background-image: url("../Images/spacebg.png");
+	margin: 0;
+	background-size: 100% 940px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+
+.board {
+	position: absolute;
+	top: 30%;
+	left: 15%;
+	z-index: 0;
+}
+
+.game-square {
+    border: 2px black solid;
+    height: 130px;
+	width: 130px;
+}
+
+
+.splash-screen {
+	background-image: url("../Images/splashbg.jpg");
+	height: 940px;
+	width: 100%;
+	z-index: 1000;
+	position: absolute;
+	overflow: hidden;
+}
+
+.main-title {
+	font-family: 'Audiowide';
+	font-weight: 900;
+	text-align: center;
+	font-size: 80px;
+	color: white;
+	text-shadow: -3px 0 maroon, 3px 0 maroon, 3px 0 maroon, -3px 0 maroon;
+	background-color: midnightblue;
+	width: 1100px;
+	border-radius: 50px;
+	border: 5px black solid;
+	margin: 0 auto;
+	top: 50px;
+	position: relative;
+	box-shadow: 4px 4px 11px 6px rgba(0,0,0,0.6);
+
+}
+
+.instructions-box {
+	height: 400px;
+	width: 1000px;
+	position: relative;
+	margin: 0 auto;
+	top: 100px;
+	text-shadow: -5px 0 midnightblue, 5px 0 midnightblue, 5px 0 midnightblue, -5px 0 midnightblue;
+}
+
+.instructions {
+	color: white;
+	font-family: 'Audiowide';
+	font-size: 25px;
+}
+
+.roll {
+	border: black 5px solid;
+	border-radius: 50px;
+	padding: 15px 0 19px 0;
+	height: 8%;
+	width: 15%;
+	position: absolute;
+	margin: 0 auto;
+	box-shadow: 4px 4px 11px 4px rgba(0,0,0,0.6);
+	font-family: 'Audiowide';
+	color: white;
+	font-size: 55px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.red-roll {
+    background-color: red;
+    top: 1%;
+    left: 40%;
+}
+
+.blue-roll {
+    background-color: blue;
+    bottom: 1%;
+    left: 40%;
+}
+
+.red-roll:hover {
+	background-color: rgb(88, 0, 0);
+}
+
+.blue-roll:hover {
+	background-color: rgb(0, 0, 60);
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: red;
+    color: red;
+}
+
+.blue-token {
+    background-color: blue;
+}
+.red-token {
+    background-color: red;
+}
+
+.counter {
+    border: black 5px solid;
+	border-radius: 25px;
+	padding: 5px 0 10px 0;
+	height: 4%;
+	width: 12%;
+	position: absolute;
+	margin: 0 auto;
+	box-shadow: 4px 4px 11px 4px rgba(0,0,0,0.6);
+	font-family: 'Audiowide';
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.red-counter {
+    background-color: red;
+    top: 10%;
+    left: 10%;
+}
+
+.blue-counter {
+    background-color: blue;
+    bottom: 10%;
+    left: 10%;
+}
+
+.rolling-tray {
+    background-color: purple;
+    border: black 5px solid;
+	border-radius: 25px;
+	padding: 5px 0 10px 0;
+	height: 60%;
+	width: 15%;
+    position: absolute;
+    right: 5%;
+    top: 20%;
+	margin: 0 auto;
+	box-shadow: 4px 4px 11px 4px rgba(0,0,0,0.6);
+	font-family: 'Audiowide';
+	font-size: 25px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.rolling-table {
+    background-color: white;
+    position: relative;
+    left: 27%;
+    top: 6%
+}
+
+.dice {
+    border: 2px black solid;
+    height: 120px;
+    width: 120px;
+    position: relative;
+    top: 10%
+}
