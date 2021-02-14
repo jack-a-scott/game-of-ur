@@ -1,0 +1,30 @@
+{
+  "name": "game-of-ur",
+  "version": "1.0.0",
+  "description": "the great game of ur",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jack-a-scott/game-of-ur.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jack-a-scott/game-of-ur/issues"
+  },
+  "homepage": "https://github.com/jack-a-scott/game-of-ur#readme",
+  "dependencies": {
+    "colyseus": "^0.14.7",
+    "colyseus.js": "^0.14.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "typescript": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.5"
+  }
+}
