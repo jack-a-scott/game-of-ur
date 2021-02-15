@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Game of Ur</title>
-	<link href="css/style.css" rel="stylesheet"/>
+	<link href="./style.css" rel="stylesheet"/>
 	<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
 </head>
@@ -20,47 +20,46 @@
 	<div class="start-button">START</div>	
 </div> -->
 
-<div class="counter blue-counter">OOOOOOO</div>
-<div class="counter red-counter">OOOOOOO</div>
+<div class="counter you-counter">OOOOOOO</div>
+<div class="counter enemy-counter">OOOOOOO</div>
 
 
 <div class="game-area">
     <table class="board">
         <tr>
-            <th class="red-4 game-square">4</th>
-            <th class="red-3 game-square">3</th>
-            <th class="red-2 game-square">2</th>
-            <th class="red-1 game-square">1</th>
+            <th class="enemy-4 game-square">4</th>
+            <th class="enemy-3 game-square">3</th>
+            <th class="enemy-2 game-square">2</th>
+            <th class="enemy-1 game-square">1</th>
             <th></th>
-            <th class="red-end">15</th>
-            <th class="red-14 game-square">14</th>
-            <th class="red-13 game-square">13</th>
+            <th class="enemy-end">15</th>
+            <th class="enemy-14 game-square">14</th>
+            <th class="enemy-13 game-square">13</th>
         </tr>
         <tr>
-            <th class="red-5 blue-5 game-square">5</th>
-            <th class="red-6 blue-6 game-square">6</th>
-            <th class="red-7 blue-7 game-square">7</th>
-            <th class="red-8 blue-8 game-square blue-token">8</th>
-            <th class="red-9 blue-9 game-square">9</th>
-            <th class="red-10 blue-10 game-square">10</th>
-            <th class="red-11 blue-11 game-square">11</th>
-            <th class="red-12 blue-12 game-square">12</th>
+            <th class="enemy-5 you-5 game-square">5</th>
+            <th class="enemy-6 you-6 game-square">6</th>
+            <th class="enemy-7 you-7 game-square">7</th>
+            <th class="enemy-8 you-8 game-square you-token">8</th>
+            <th class="enemy-9 you-9 game-square">9</th>
+            <th class="enemy-10 you-10 game-square">10</th>
+            <th class="enemy-11 you-11 game-square">11</th>
+            <th class="enemy-12 you-12 game-square">12</th>
         </tr>
         <tr>
-            <th class="blue-4 game-square">4</th>
-            <th class="blue-3 game-square">3</th>
-            <th class="blue-2 game-square">2</th>
-            <th class="blue-1 game-square">1</th>
+            <th class="you-4 game-square">4</th>
+            <th class="you-3 game-square">3</th>
+            <th class="you-2 game-square">2</th>
+            <th class="you-1 game-square">1</th>
             <th></th>
-            <th class="blue-end">15</th>
-            <th class="blue-14 game-square">14</th>
-            <th class="blue-13 game-square">13</th>
+            <th class="you-end">15</th>
+            <th class="you-14 game-square">14</th>
+            <th class="you-13 game-square">13</th>
         </tr>
     </table>
 </div>
 
-<div class="roll red-roll invisible">red roll</div>
-<div class="roll blue-roll invisible">blue roll</div>
+<div class="roll invisible">you roll</div>
 
 <div class="rolling-tray">
     <table class="rolling-table">
@@ -72,7 +71,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="lib/client/ts/main.js"></script>
+<script src="./bundle.js"></script>
 </body>
 
 </html>

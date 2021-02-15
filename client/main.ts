@@ -8,19 +8,54 @@
 // });
 
 // startGame()
-
 import { Room, Client } from "colyseus.js";
-import { State } from "../../server/rooms/State";
 
-const endpoint = "ws://localhost:8080"
+import { State } from "../server/rooms/State";
+
+const endpoint = "ws://localhost:2543"
 let client = new Client(endpoint)
+console.log(client)
+let player
 
-try {
-    const room = await client.joinOrCreate("room1");
+function main() {
+    var room = client.joinOrCreate("ur").then(room => {
+        
+        console.log("setting up messag receiver")
+        room.onMessage("hello", (message) => {
+            console.log(message)
+        });
+        console.log("setting up statechangeonce handler")
+        room.onStateChange.once(function(state: State) {
+            console.log("this is the starting state", state)
+            // player = state.colours[client.id]
+        });
+        console.log("setting up statechange handler")
+        room.onStateChange(function(state: State) {
+            console.log("state has changed")
+            if (state.gameInProgress) {
+                beginGame(room)
+            }
+        });            
+    });
     console.log("joined succesfully", room);
-} catch (e) {
-    console.error("join error", e);
+
 }
+main()
+
+function beginGame(room: Room) {
+    console.log("game has begun")
+    console.log("my session id", room.sessionId)
+    console.log("who's turn?", room.state.currentTurn)
+    if (room.state.currentTurn === room.sessionId) {
+        let roller = $(`.roll`).removeClass("invisible")
+        roller.on("click", function()
+            {
+                room.send("action", "roll");
+            }
+        )
+    }
+}
+
 
 // var tokenCount = {
 //     blue: 7,
@@ -49,7 +84,6 @@ try {
 
 // function takeTurn(player: string) {
 //     console.log("your turn "+ player)
-//     let roller = $(`.${player}-roll`).removeClass("invisible")
 
 //     roller.on("click", function()
 //         {

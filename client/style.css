@@ -1,5 +1,5 @@
 body {
-	background-image: url("../Images/spacebg.png");
+	/* background-image: url("../Images/spacebg.png"); */
 	margin: 0;
 	background-size: 100% 940px;
 	background-repeat: no-repeat;
@@ -78,25 +78,12 @@ body {
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
-}
-
-.red-roll {
-    background-color: red;
-    top: 1%;
-    left: 40%;
-}
-
-.blue-roll {
     background-color: blue;
     bottom: 1%;
     left: 40%;
 }
 
-.red-roll:hover {
-	background-color: rgb(88, 0, 0);
-}
-
-.blue-roll:hover {
+.roll:hover {
 	background-color: rgb(0, 0, 60);
 }
 
@@ -113,10 +100,10 @@ body {
     color: red;
 }
 
-.blue-token {
+.you-token {
     background-color: blue;
 }
-.red-token {
+.enemy-token {
     background-color: red;
 }
 
@@ -137,13 +124,13 @@ body {
 	cursor: pointer;
 }
 
-.red-counter {
+.enemy-counter {
     background-color: red;
     top: 10%;
     left: 10%;
 }
 
-.blue-counter {
+.you-counter {
     background-color: blue;
     bottom: 10%;
     left: 10%;

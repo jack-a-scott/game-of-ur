@@ -1,18 +1,17 @@
-all: clean npm ur-client ur-server
+all: clean npm ur
 
 npm:
 	npm install
 
-ur-client:
-	mkdir client/lib
-	cp client/index.html client/lib/index.html
-	cp -R client/css client/lib/css
-	cp -R client/img client/lib/img
-	tsc client/ts/main.ts	
+ur:
+	mkdir -p dist/client dist/server
+	rsync -av --exclude='client/main.ts' client dist/
+	webpack --mode=development
 	@echo built client
-
-ur-server:
-	tsc server/index.ts
+	http-server dist/client
 
 clean:
-	rm -rf client/lib server/lib
+	rm -rf dist
+
+run:
+	ts-node server
