@@ -19,23 +19,25 @@ let player
 
 function main() {
     var room = client.joinOrCreate("ur").then(room => {
-        
-        console.log("setting up messag receiver")
-        room.onMessage("hello", (message) => {
+        room.onMessage("beginGame", (message) => {
             console.log(message)
+            beginGame(room)
         });
-        console.log("setting up statechangeonce handler")
-        room.onStateChange.once(function(state: State) {
-            console.log("this is the starting state", state)
-            // player = state.colours[client.id]
+        room.onMessage("allowedMoves", (allowedMoves) => {
+            console.log(allowedMoves);
+            // update UI with allowed moves to be clicked
+            moveHighlighter(allowedMoves, room)
+
         });
-        console.log("setting up statechange handler")
         room.onStateChange(function(state: State) {
-            console.log("state has changed")
-            if (state.gameInProgress) {
-                beginGame(room)
+            if (state.gameInProgress === true) {
+                console.log(state)
+                updateUI(state, room)                
+            } else {
+                console.log("state changed but game has not yet begun so not changing anything")
             }
-        });            
+
+        })     
     });
     console.log("joined succesfully", room);
 
@@ -51,36 +53,58 @@ function beginGame(room: Room) {
         roller.on("click", function()
             {
                 room.send("action", "roll");
+                roller.addClass("invisible")
+                roller.off()
             }
         )
     }
 }
 
+function updateUI(state : State, room: Room) {
+    console.log("updating UI")
+    console.log(state)
+    updateDiceUI(state.diceRolls)
+    updateCounterUI(state.counterPositions, room)
+}
 
-// var tokenCount = {
-//     blue: 7,
-//     red: 7
-// }
+function updateDiceUI(results: number[]) {
+    console.log("updating dice UI element")
+    console.log(results)
+    let dice = $(".dice")
+    console.log(results)
+    results.forEach((result, index) => {
+        $(dice[index]).text(result)
+    })
+}
 
-// var stockpileCount = {
-//     blue: 7,
-//     red: 7
-// }
+function updateCounterUI(counterPositions, room: Room) {
+    // for eahc player 
+    console.log("THESE ARE THE COUNTER POSITIONS", counterPositions)
+    counterPositions.forEach((positions: number[], sessionId: string) => {
+        let player = sessionId === room.sessionId ? "you" : "enemy" 
+        // iterate each possible square
+        Array(14).forEach((idx) => {
+            // if the list of positons includes the current one
+            if (positions.includes(idx)) {
+                // then add class to the square
+                $(`.${player}-${idx}`).addClass("${player}-token")
+            } else {
+                $(`.${player}-${idx}`).removeClass("${player}-token")
+            }
+            $(`.${player}-${idx}`).removeClass('orange')
+        });
+    })
+}
 
-// let turnFlag = false;
-
-// function gameTurn() {
-//     let players = ["red", "blue"]
-//     updateStockpileGraphic()
-
-//     if (turnFlag) {
-//         takeTurn("red")
-//     } else {
-//         takeTurn("blue")
-//     }
-//     turnFlag = !turnFlag
-// }
-// gameTurn()
+function moveHighlighter(allowedMoves: number[], room: Room) {
+    allowedMoves.forEach((move) => {
+        let square = $(`.you-${move}`)
+        square.addClass('orange')
+        square.on("click", function(square) {
+            room.send("chosenMove", square)
+        })
+    })
+}
 
 // function takeTurn(player: string) {
 //     console.log("your turn "+ player)
